@@ -7,9 +7,8 @@
     tools:context=".MainActivity">
 
 
-   <fragment
-       android:id="@+id/frag"
-       android:name="c.verbswithexample.fragmentstartnew.AFragment"
+   <FrameLayout
+       android:id="@+id/fragA"
        android:layout_width="match_parent"
        android:layout_height="match_parent" />
 
