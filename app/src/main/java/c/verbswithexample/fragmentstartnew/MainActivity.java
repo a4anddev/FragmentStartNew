@@ -38,5 +38,34 @@ public class MainActivity extends AppCompatActivity {
         transaction.add(R.id.fragA, aFragment);
         transaction.commit();
 
+
+        /*
+        * life cycle activity and fragment life cycle
+        *  onCreate                     onAttach
+        *                               onCreate
+        *                               onCreateView
+        *                               onActivityCreated
+        *
+        *
+        *  onStart                      onStart
+        *
+        *  onResume                     onResume
+        *
+        *
+        * onPause                       onPause
+        *
+        *
+        *
+        *  onStop                       onStop
+        *
+        *
+        *
+        * onDestory                     onDestoryView
+        *                               onDestroy
+        *                               onDetach
+        *
+        * */
+
     }
+
 }
