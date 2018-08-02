@@ -24,6 +24,14 @@ public class AFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        Log.i(TAG, FRAGMENT_NAME +" onCreateView");
+        return inflater.inflate(R.layout.fragment_a,container,false);
+    }
+
+
 
     @Override
     public void onAttach(Context context) {
@@ -37,12 +45,7 @@ public class AFragment extends Fragment {
         Log.i(TAG, FRAGMENT_NAME +" onCreate");
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        Log.i(TAG, FRAGMENT_NAME +" onCreateView");
-        return inflater.inflate(R.layout.fragment_a,container,false);
-    }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
