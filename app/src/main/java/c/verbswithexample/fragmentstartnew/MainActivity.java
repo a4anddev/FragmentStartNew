@@ -184,7 +184,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         transaction = manager.beginTransaction();
-        transaction.add(R.id.fragmentContainer, fragment, "demofragment");
+        // if you don't want multiple add ya override fragment add change into replace
+        transaction.replace(R.id.fragmentContainer, fragment, "demofragment");
         transaction.commit();
     }
 
