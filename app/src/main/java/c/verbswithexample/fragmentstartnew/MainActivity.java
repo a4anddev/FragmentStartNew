@@ -128,10 +128,10 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, ACTIVITY_NAME+" onDestroy");
     }
 
-    private void addFragment(){
+   /* private void addFragment(){
 
         Fragment fragment;
-// this method count every activity if you add automatic plus if you back button automatic minus this method help you
+        // this method count every activity if you add automatic plus if you back button automatic minus this method help you
         // dynamic fragment call
         Toast.makeText(this, ""+manager.getBackStackEntryCount(), Toast.LENGTH_SHORT).show();
         switch (manager.getBackStackEntryCount()){
@@ -152,8 +152,59 @@ public class MainActivity extends AppCompatActivity {
 
         // this method count every activity if you add automatic plus if you back button automatic minus this method help you
         // dynamic fragment call [[[[[ addtobackstaack very important]]]]]
-        transaction.addToBackStack(null);
+
+         transaction.addToBackStack(null);
         transaction.commit();
+    }*/
+
+
+
+   // this method another method use without [[[[addtobackstack]]]
+
+    private void addFragment(){
+
+        Fragment fragment;
+
+        fragment = manager.findFragmentById(R.id.fragmentContainer);
+
+        if (fragment instanceof AFragment){
+            fragment = new BFragment();
+        }else if (fragment instanceof BFragment){
+            fragment = new CFragment();
+        }else if (fragment instanceof CFragment){
+            fragment = new DFragment();
+
+        }else if (fragment instanceof DFragment){
+            fragment = new AFragment();
+
+        }else {
+            fragment = new AFragment();
+        }
+
+
+
+        transaction = manager.beginTransaction();
+        transaction.add(R.id.fragmentContainer, fragment, "demofragment");
+        transaction.commit();
+    }
+
+
+
+    // we override this method this help us to back and remove fragment
+    @Override
+    public void onBackPressed() {
+
+        Fragment fragment =  manager.findFragmentById(R.id.fragmentContainer);
+        if (fragment !=null){
+            transaction = manager.beginTransaction();
+            transaction.remove(fragment);
+            transaction.commit();
+        }else{
+
+            super.onBackPressed();
+        }
+
+
     }
 
     public void AddFragmentButton(View view) {
